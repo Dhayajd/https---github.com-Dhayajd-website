@@ -23,7 +23,7 @@ const Registration=()=>{
       const formData={
         selectedOffice,selecteddistrict,selectedcovered
       }
-      const response=await axios('',formData)
+      const response=await axios.post('',formData)
       console.log("executed",response)
          navigate("/register2")
     }
