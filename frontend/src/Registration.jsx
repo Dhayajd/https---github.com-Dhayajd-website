@@ -23,9 +23,14 @@ const Registration=()=>{
       const formData={
         selectedOffice,selecteddistrict,selectedcovered
       }
-      const response=await axios.post('',formData)
-      console.log("executed",response)
-         navigate("/register2")
+      try{
+        const response=await axios.post('',formData)
+        console.log("executed",response)
+           navigate("/register2")
+      }catch(error){
+        console.log('error is here',error)
+      }
+
     }
     const handlecancel=()=>{
         navigate("/")
