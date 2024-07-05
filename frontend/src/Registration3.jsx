@@ -27,7 +27,7 @@ const Registration3 = () => {
   const handlesubmit = (e) => {
     e.preventDefault()
     console.log(formData)
-    
+    navigate('/login')
     
   }
 

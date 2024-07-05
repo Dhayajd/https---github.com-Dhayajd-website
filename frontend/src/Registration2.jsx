@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
+import axios from "axios"
 
 const Registration2 = () => {
   const navigate = useNavigate()
@@ -17,16 +18,21 @@ const Registration2 = () => {
   // Handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
       [name]: value
     }))
   }
 
-  const handlenext = () => {
-    
-    console.log(formData)
-    navigate("/register3")
+  const handlenext =async () => {
+    try{
+      const response= await axios.post('',formData)
+      console.log("response is here",response)
+      navigate("/register3")
+    }catch (error){
+      console.log('Error here',error)
+    }
+   
   }
 
   const handlecancel = () => {

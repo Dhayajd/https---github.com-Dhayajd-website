@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react";
+import axios from "axios";
+
 const Registration=()=>{
     const [selectedOffice, setSelectedOffice] = useState('');
     const [selecteddistrict, setSelecteddistrict] = useState('');
@@ -16,8 +18,14 @@ const Registration=()=>{
       };
 
     const navigate=useNavigate()
-    const handlenext=()=>{
-        navigate("/register2")
+    const handlenext=async()=>{
+      console.log({selectedOffice,selecteddistrict,selectedcovered})
+      const formData={
+        selectedOffice,selecteddistrict,selectedcovered
+      }
+      const response=await axios('',formData)
+      console.log("executed",response)
+         navigate("/register2")
     }
     const handlecancel=()=>{
         navigate("/")
